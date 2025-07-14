@@ -285,26 +285,31 @@ app.use(cookieParser());
 app.use(express.static("public"));
 app.use(morgan("dev"));
 
-// ✅ CORS for API (Express)
 const allowedOrigins = [
-  "https://mdmuhim0096.github.io/v2",
+  "http://localhost:5173", // local dev
+  "https://mdmuhim0096.github.io", // deployed GitHub Pages root
   "https://mdmuhim0096.github.io/v3",
   "https://mdmuhim0096.github.io/v4",
   "https://mdmuhim0096.github.io/v5",
   "https://mdmuhim0096.github.io/v6",
-  "https://mdmuhim0096.github.io/v7"
+  "https://mdmuhim0096.github.io/v7" // optional if subpath used
 ];
 
 app.use(cors({
   origin: function (origin, callback) {
-    if (!origin || allowedOrigins.includes(origin)) {
-      callback(null, true);
+    // Allow requests with no origin (like mobile apps or curl)
+    if (!origin) return callback(null, true);
+
+    if (allowedOrigins.includes(origin)) {
+      return callback(null, true);
     } else {
-      callback(new Error('CORS not allowed'));
+      console.error(`❌ CORS blocked: ${origin}`);
+      return callback(new Error("CORS not allowed"));
     }
   },
-  credentials: true
+  credentials: true,
 }));
+
 
 // ✅ Routers
 const databas = require("./databas/databas");
