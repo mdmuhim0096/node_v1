@@ -287,8 +287,12 @@ app.use(morgan("dev"));
 
 // ✅ CORS for API (Express)
 const allowedOrigins = [
-  "http://localhost:5173",
-  "https://mdmuhim0096.github.io"
+  "https://mdmuhim0096.github.io/v2",
+  "https://mdmuhim0096.github.io/v3",
+  "https://mdmuhim0096.github.io/v4",
+  "https://mdmuhim0096.github.io/v5",
+  "https://mdmuhim0096.github.io/v6",
+  "https://mdmuhim0096.github.io/v7"
 ];
 
 app.use(cors({
