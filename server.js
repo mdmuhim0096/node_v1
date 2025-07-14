@@ -131,7 +131,7 @@ app.use(cookieParser())
 app.use(express.static("public"));
 
 app.use(cors({
-  origin: "https://mdmuhim0096.github.io/v1",
+  origin: "https://mdmuhim0096.github.io/v3",
   methods: 'GET,POST,PUT,DELETE',
   credentials: true
 }));
