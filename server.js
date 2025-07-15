@@ -169,6 +169,7 @@ const server = http.createServer(app);
 const io = new Server(server, {
   cors: {
     origin: [
+      "https://mdmuhim0096.github.io",
       "https://mdmuhim0096.github.io/v2",
       "https://mdmuhim0096.github.io/v3",
       "https://mdmuhim0096.github.io/v4",
@@ -177,7 +178,6 @@ const io = new Server(server, {
       "https://mdmuhim0096.github.io/v7"
     ],
     methods: ['GET', 'POST'],
-    credentials: true
   }
 });
 
