@@ -175,7 +175,8 @@ const io = new Server(server, {
       "https://mdmuhim0096.github.io/v4",
       "https://mdmuhim0096.github.io/v5",
       "https://mdmuhim0096.github.io/v6",
-      "https://mdmuhim0096.github.io/v7"
+      "https://mdmuhim0096.github.io/v7",
+      "https://v3-ydbx.onrender.com"
     ],
     methods: ['GET', 'POST'],
   }
@@ -292,7 +293,8 @@ const allowedOrigins = [
   "https://mdmuhim0096.github.io/v4",
   "https://mdmuhim0096.github.io/v5",
   "https://mdmuhim0096.github.io/v6",
-  "https://mdmuhim0096.github.io/v7" // optional if subpath used
+  "https://mdmuhim0096.github.io/v7",
+  "https://v3-ydbx.onrender.com" // optional if subpath used
 ];
 
 app.use(cors({
