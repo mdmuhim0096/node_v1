@@ -31,7 +31,14 @@ io.on('connection', (socket) => {
   socket.on("end_call", data => {
     socket.broadcast.emit("end_call", data);
   });
+  socket.on("join_call_a", data => {
+    socket.broadcast.emit("join_call_a", data);
+  });
 
+  socket.on("join_call_v", data => {
+    socket.broadcast.emit("join_call_v", data);
+  })
+  
   socket.on("end_call_a", data => {
     socket.broadcast.emit("end_call_a", data);
   });
