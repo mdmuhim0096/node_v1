@@ -28,6 +28,9 @@ let onlineUser = {};
 
 // ✅ Socket.IO logic
 io.on('connection', (socket) => {
+  socket.on("join_room", roomId => {
+    socket.broadcast.emit("join_room", roomId);
+  })
   socket.on("end_call", data => {
     socket.broadcast.emit("end_call", data);
   });
@@ -38,7 +41,7 @@ io.on('connection', (socket) => {
   socket.on("join_call_v", data => {
     socket.broadcast.emit("join_call_v", data);
   })
-  
+
   socket.on("end_call_a", data => {
     socket.broadcast.emit("end_call_a", data);
   });

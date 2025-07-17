@@ -175,6 +175,26 @@ route.get("/deleteGroup", async (req, res) => {
     } catch (error) {
 
     }
-})
+});
+
+route.get("/isMatchGroup/:id/:uid", async (req, res) => {
+    try {
+        const user = await People.findById(req.params.uid);
+        if (!user) {
+            return res.status(404).json({ message: "User not found" });
+        }
+
+        // Ensure `user.groups` exists and is an array
+        const isMatch = user.groups?.some(
+            (groupId) => groupId.toString() === req.params.id
+        );
+
+        console.log(isMatch, "isMatch");
+        res.status(200).json({ isMatch });
+    } catch (error) {
+        console.error(error); // you had `err` which was undefined
+        res.status(500).json({ message: "Server error" });
+    }
+});
 
 module.exports = route;
