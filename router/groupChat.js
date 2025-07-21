@@ -3,7 +3,6 @@ const route = require("express").Router();
 const path = require("path");
 const multer = require("multer");
 const { deletePreviusFile } = require("../lib/fileHandeler");
-const mongoose = require("mongoose");
 
 const storage = multer.diskStorage({
     destination: (req, file, cb) => {
@@ -113,7 +112,6 @@ route.post("/deleteMessage", async (req, res) => {
         res.status(500).json({ message: "server error" });
     }
 });
-
 
 route.post("/reply", async (req, res) => {
     try {
